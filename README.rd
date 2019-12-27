@@ -1,1 +1,0 @@
-Rock, Paper, Scissors JS game created through The Odin Project

@@ -32,9 +32,9 @@
 
 
     function playRound(playerSelection, computerSelection){
-        if (playerSelection === 'minigun'){
-            console.log('Stop trying to break my stuff, Timmy. :P' )
-        }
+    if (playerSelection !='rock' || 'paper' || 'scissors')
+        console.log('That is not a valid option')
+        
     else if (playerSelection === computerSelection){
         console.log('You both picked ' + playerSelection + ' It is a tie!')
     } 

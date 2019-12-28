@@ -9,7 +9,7 @@
 
 <script>
     function computerPlay(){
-    let computerSelection = Math.floor(Math.random() * 2); {
+    let computerSelection = Math.floor(Math.random() * Math.floor(3)); {
         if (computerSelection === 0) {
         return ('rock')
     } if (computerSelection === 1) {
@@ -21,47 +21,64 @@
     }
     
     
-    function game(){
+    function game(n){
+        computerScore = 0
+        playerScore = 0
+        round = 1;
+        while (round < 6){
         let computerSelection = computerPlay();
-        let playerSelection = prompt('Rock, paper or scissors?', '').toLowerCase();
-        console.log(playRound(playerSelection, computerPlay()))
-    }
-        
+        let playerSelection = prompt('Round '+ round + ':' + ' Rock, paper or scissors?', '').toLowerCase();
+        console.log(playRound(playerSelection, computerPlay())); 
+        round++;
+        }
+
+            if (round > 5) {
+            alert('Game over! Computer score: ' + computerScore + ' Player score: ' + playerScore)
+        }
+        }
     
+        game(5)
 
 
 
     function playRound(playerSelection, computerSelection){
-    if (playerSelection !='rock' || 'paper' || 'scissors')
-        console.log('That is not a valid option')
-        
-    else if (playerSelection === computerSelection){
-        console.log('You both picked ' + playerSelection + ' It is a tie!')
+    
+      
+    if (playerSelection === computerSelection){
+        console.log('You both picked the same. It is a tie!')
     } 
     else if (playerSelection == 'rock' && computerSelection == 'scissors'){
+        playerScore++
         console.log('Rock beats scissors, you win!' )
     
     }
     else if (playerSelection == 'rock' && computerSelection == 'paper'){
+        computerScore++
         console.log('Paper beats rock, you lose!' )
     
     }
     else if (playerSelection == 'paper' && computerSelection == 'scissors'){
+        computerScore++
         console.log('Scissors beats paper, you lose!' )
     
     }
     else if (playerSelection == 'paper' && computerSelection == 'rock'){
+        playerScore++
         console.log('Paper beats rock, you win!' )
     
     }
     else if (playerSelection == 'scissors' && computerSelection == 'paper'){
+        playerScore++
         console.log('Scissors beats paper, you win!' )
     
     }
     else if (playerSelection == 'scissors' && computerSelection == 'rock'){
+        computerScore++
         console.log('Rock beats scissors, you lose!' )
     
     }
+    else 
+        console.log('That is not a valid option')
 }
 
     

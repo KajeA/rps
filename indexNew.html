@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+<h1> Rock, Paper, Scissors</h1>
+<p>Choose your weapon:</p>
+
+<div id="playerSelection">
+
+    <input type="button" value="rock" onclick="playRound(this.value)">
+    <input type="button" value="paper" onclick="playRound(this.value)">
+    <input type="button" value="scissors" onclick="playRound(this.value)">
+
+
+<h2> SCORE </h2>
+
+<div class="score">
+    PLAYER:
+    COMPUTER:
+</div>
+
+
+
+<script>
+    function computerPlay(){
+    let computerSelection = Math.floor(Math.random() * Math.floor(3)); {
+        if (computerSelection === 0) {
+        return ('rock')
+    } if (computerSelection === 1) {
+        return ('scissors') 
+    } if (computerSelection === 2) {
+        return ('paper')
+    }
+    }
+    }
+    
+    
+    function game(n){
+        computerScore = 0
+        playerScore = 0
+        round = 1;
+        let computerSelection = computerPlay();
+        console.log(playRound(playerSelection, computerPlay())); 
+        round++;
+        }
+
+    
+        
+    // Picks up the input from the buttons
+    const button = document.querySelectorAll('.button');
+    button.forEach(button => button.addEventListener('click', playRound));
+    let playerSelection = button.id
+
+    
+        
+    
+    // playerSelection and computerSelection both return undefined
+
+    function playRound(val, computerSelection){
+       
+    
+      
+    if (playerSelection === computerSelection){
+        console.log('You both picked the same. It is a tie!')
+    } 
+    else if (playerSelection == 'rock' && computerSelection == 'scissors'){
+        playerScore++
+        console.log('Rock beats scissors, you win!' )
+    
+    }
+    else if (playerSelection == 'rock' && computerSelection == 'paper'){
+        computerScore++
+        console.log('Paper beats rock, you lose!' )
+    
+    }
+    else if (playerSelection == 'paper' && computerSelection == 'scissors'){
+        computerScore++
+        console.log('Scissors beats paper, you lose!' )
+    
+    }
+    else if (playerSelection == 'paper' && computerSelection == 'rock'){
+        playerScore++
+        console.log('Paper beats rock, you win!' )
+    
+    }
+    else if (playerSelection == 'scissors' && computerSelection == 'paper'){
+        playerScore++
+        console.log('Scissors beats paper, you win!' )
+    
+    }
+    else if (playerSelection == 'scissors' && computerSelection == 'rock'){
+        computerScore++
+        console.log('Rock beats scissors, you lose!' )
+    
+    }
+    else 
+        console.log('That is not a valid option')
+}
+
+    
+
+       
+</script>
+
+
+</body>
+</html>

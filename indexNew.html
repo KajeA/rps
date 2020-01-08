@@ -11,11 +11,12 @@
 <h1> Rock, Paper, Scissors</h1>
 <p>Choose your weapon:</p>
 
-<div id="playerSelection">
+<div id="buttons">
 
-    <input type="button" value="rock" onclick="playRound(this.value)">
-    <input type="button" value="paper" onclick="playRound(this.value)">
-    <input type="button" value="scissors" onclick="playRound(this.value)">
+    <button id="rock" type="button">Rock</button>
+    <button id="paper" type="button">Paper</button>
+    <button id="scissors" type="button">Scissors</button>
+    
 
 
 <h2> SCORE </h2>
@@ -38,34 +39,12 @@
         return ('paper')
     }
     }
-    }
-    
-    
-    function game(n){
-        computerScore = 0
-        playerScore = 0
-        round = 1;
-        let computerSelection = computerPlay();
-        console.log(playRound(playerSelection, computerPlay())); 
-        round++;
-        }
+    } 
 
-    
-        
-    // Picks up the input from the buttons
-    const button = document.querySelectorAll('.button');
-    button.forEach(button => button.addEventListener('click', playRound));
-    let playerSelection = button.id
-
-    
-        
-    
-    // playerSelection and computerSelection both return undefined
-
-    function playRound(val, computerSelection){
+    function playRound(playerSelection, computerSelection){
+    let playerScore = 0
+    let computerScore = 0
        
-    
-      
     if (playerSelection === computerSelection){
         console.log('You both picked the same. It is a tie!')
     } 
@@ -99,10 +78,16 @@
         console.log('Rock beats scissors, you lose!' )
     
     }
-    else 
-        console.log('That is not a valid option')
+    
 }
 
+ // Picks up the input from the buttons
+    const buttons = document.querySelectorAll("button")
+
+    buttons.forEach(function(button) {
+       button.addEventListener('click', (e) => playRound(button.id, computerPlay()));
+       var playerSelection = button.id
+   });
     
 
        

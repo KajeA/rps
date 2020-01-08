@@ -22,8 +22,8 @@
 <h2> SCORE </h2>
 
 <div class="score">
-    PLAYER:
-    COMPUTER:
+    PLAYER: <p id="ps"> 0 </p>
+    COMPUTER: <p id="cs"> 0 </p>
 </div>
 
 
@@ -32,19 +32,20 @@
     function computerPlay(){
     let computerSelection = Math.floor(Math.random() * Math.floor(3)); {
         if (computerSelection === 0) {
-        return ('rock')
+        return ('rock');
     } if (computerSelection === 1) {
-        return ('scissors') 
+        return ('scissors');
     } if (computerSelection === 2) {
-        return ('paper')
+        return ('paper');
     }
     }
     } 
 
+    var playerScore = 0;
+    var computerScore = 0;
+
     function playRound(playerSelection, computerSelection){
-    let playerScore = 0
-    let computerScore = 0
-       
+     
     if (playerSelection === computerSelection){
         console.log('You both picked the same. It is a tie!')
     } 
@@ -76,7 +77,14 @@
     else if (playerSelection == 'scissors' && computerSelection == 'rock'){
         computerScore++
         console.log('Rock beats scissors, you lose!' )
+    }
     
+    // updates player score in html
+    document.getElementById("ps").innerHTML = playerScore;
+    document.getElementById("cs").innerHTML = computerScore;
+
+    if (playerScore === 5 || computerScore === 5){
+        console.log("Game over!")
     }
     
 }

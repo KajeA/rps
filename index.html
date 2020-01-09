@@ -9,72 +9,77 @@
 <body>
 
 <h1> Rock, Paper, Scissors</h1>
-<p>Choose your weapon:</p>
+<p>First to 5, wins. Choose your weapon:</p>
 
-<div id="buttons">
-
-    <button id="rock" type="button">Rock</button>
-    <button id="paper" type="button">Paper</button>
-    <button id="scissors" type="button">Scissors</button>
+    <button id="Rock" type="button"><img src="rock.png" /></button>
+    <button id="Paper" type="button"><img src="paper.png" /></button>
+    <button id="Scissors" type="button"><img src="scissors.png" /></button>
     
-
+<div>
+    Computer picked: <p id="cp">  </p>
+</div>
 
 <h2> SCORE </h2>
 
+
 <div class="score">
-    PLAYER: <p id="ps"> 0 </p>
-    COMPUTER: <p id="cs"> 0 </p>
+    <u>PLAYER:</u> <p id="ps"> 0 </p>
+    <u>COMPUTER:</u> <p id="cs"> 0 </p>
 </div>
 
 
 
 <script>
+    
     function computerPlay(){
     let computerSelection = Math.floor(Math.random() * Math.floor(3)); {
-        if (computerSelection === 0) {
-        return ('rock');
+      if (computerSelection === 0) {
+        return ('Rock');
     } if (computerSelection === 1) {
-        return ('scissors');
+        return ('Scissors');
     } if (computerSelection === 2) {
-        return ('paper');
-    }
-    }
+        return ('Paper');
+    }  
     } 
+    } 
+    
 
     var playerScore = 0;
     var computerScore = 0;
 
     function playRound(playerSelection, computerSelection){
+
+    document.getElementById("cp").innerHTML = computerSelection;
      
     if (playerSelection === computerSelection){
         console.log('You both picked the same. It is a tie!')
     } 
-    else if (playerSelection == 'rock' && computerSelection == 'scissors'){
+    else if (playerSelection == 'Rock' && computerSelection == 'Scissors'){
         playerScore++
         console.log('Rock beats scissors, you win!' )
     
     }
-    else if (playerSelection == 'rock' && computerSelection == 'paper'){
+    else if (playerSelection == 'Rock' && computerSelection == 'Paper'){
         computerScore++
         console.log('Paper beats rock, you lose!' )
     
     }
-    else if (playerSelection == 'paper' && computerSelection == 'scissors'){
+    else if (playerSelection == 'Paper' && computerSelection == 'Scissors'){
         computerScore++
         console.log('Scissors beats paper, you lose!' )
     
     }
-    else if (playerSelection == 'paper' && computerSelection == 'rock'){
+    else if (playerSelection == 'Paper' && computerSelection == 'Rock'){
         playerScore++
         console.log('Paper beats rock, you win!' )
     
     }
-    else if (playerSelection == 'scissors' && computerSelection == 'paper'){
+    else if (playerSelection == 'Scissors' && computerSelection == 'Paper'){
         playerScore++
         console.log('Scissors beats paper, you win!' )
     
     }
-    else if (playerSelection == 'scissors' && computerSelection == 'rock'){
+    else if (playerSelection == 'Scissors' && computerSelection == 'Rock'){
         computerScore++
         console.log('Rock beats scissors, you lose!' )
     }
@@ -83,8 +88,12 @@
     document.getElementById("ps").innerHTML = playerScore;
     document.getElementById("cs").innerHTML = computerScore;
 
-    if (playerScore === 5 || computerScore === 5){
-        alert("Game over! Do you want to play again?");
+    if (playerScore === 5){
+        alert("Game over! You win! Do you want to play again?");
+        location.reload();
+    }
+    if (computerScore === 5){
+        alert("Game over! Computer wins! Do you want to play again?");
         location.reload();
     }
     

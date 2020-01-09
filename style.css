@@ -1,31 +1,64 @@
 h1 {
     font-size: 35px;
-    color: red;
-    background: black;
+    color: black;
+    background: yellowgreen;
     background-size: cover;
     font-family: fantasy;
     text-align: center;
   }
   
-  body {
+body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background-color: black;
-    color: burlywood;
+    background-color: white;
+    color: black;
     text-align: center;
   }
   
-  
-  /* will change look of buttons */
-  
-  .button{
-   
-  }
-  /* will highlight selection*/
-  .selected { 
+h2 {
+    background: black;
+    border-style: double;
+    border-width: 5px;
+    color: yellowgreen;
     
   }
+
+#computerPick {
+   color: blue; 
+  }
+
+/* will change look of buttons */
   
+#Rock {
+    background: white;
+    border: none;
+    height: 300px;
+    width:300px;
+  }
+#Paper {
+    background: none;
+    border: none;
+    height: 300px;
+    width: 300px;
+  }
+#Scissors {
+    background: transparent;
+    border: none;
+    height: 300px;
+    width: 300px;
+  }
+
+#Rock:hover{
+  background-color: green;
+}
+
+#Paper:hover{
+  background-color: green;
+}
+
+#Scissors:hover{
+  background-color: green;
+}
 
   

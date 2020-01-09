@@ -28,6 +28,12 @@ h2 {
    color: blue; 
   }
 
+#roundResult {
+  color: green;
+  text-shadow: indigo;
+  font-weight: bold;
+}
+
 /* will change look of buttons */
   
 #Rock {

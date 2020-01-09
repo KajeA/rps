@@ -17,6 +17,7 @@
     
 <div>
     Computer picked: <p id="cp">  </p>
+    <p id="roundResult"> </p>
 </div>
 
 <h2> SCORE </h2>
@@ -30,7 +31,7 @@
 
 
 <script>
-    
+
     function computerPlay(){
     let computerSelection = Math.floor(Math.random() * Math.floor(3)); {
       if (computerSelection === 0) {
@@ -52,36 +53,36 @@
     document.getElementById("cp").innerHTML = computerSelection;
      
     if (playerSelection === computerSelection){
-        console.log('You both picked the same. It is a tie!')
+        document.getElementById("roundResult").innerHTML ="You both picked the same. It is a tie!";
     } 
     else if (playerSelection == 'Rock' && computerSelection == 'Scissors'){
         playerScore++
-        console.log('Rock beats scissors, you win!' )
+        document.getElementById("roundResult").innerHTML ="Rock beats scissors, you get a point!";
     
     }
     else if (playerSelection == 'Rock' && computerSelection == 'Paper'){
         computerScore++
-        console.log('Paper beats rock, you lose!' )
+        document.getElementById("roundResult").innerHTML ="Paper beats rock, computer gets a point";
     
     }
     else if (playerSelection == 'Paper' && computerSelection == 'Scissors'){
         computerScore++
-        console.log('Scissors beats paper, you lose!' )
+        document.getElementById("roundResult").innerHTML ="Scissors beats paper, computer gets a point!";
     
     }
     else if (playerSelection == 'Paper' && computerSelection == 'Rock'){
         playerScore++
-        console.log('Paper beats rock, you win!' )
+        document.getElementById("roundResult").innerHTML ="Paper beats rock, you get a point!"
     
     }
     else if (playerSelection == 'Scissors' && computerSelection == 'Paper'){
         playerScore++
-        console.log('Scissors beats paper, you win!' )
+        document.getElementById("roundResult").innerHTML ="Scissors beats paper, you get a point!"
     
     }
     else if (playerSelection == 'Scissors' && computerSelection == 'Rock'){
         computerScore++
-        console.log('Rock beats scissors, you lose!' )
+        document.getElementById("roundResult").innerHTML ="Rock beats scissors, computer point!";
     }
     
     // updates player score in html

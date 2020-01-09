@@ -2,50 +2,48 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="style.css">
 </head>
 
 
 <body>
 
-<h1> Rock, Paper, Scissors</h1>
-<p>Choose your weapon:</p>
-
-<div id="buttons">
-
-    <button id="rock" type="button">Rock</button>
-    <button id="paper" type="button">Paper</button>
-    <button id="scissors" type="button">Scissors</button>
-    
-
-
-<h2> SCORE </h2>
-
-<div class="score">
-    PLAYER: <p id="ps"> 0 </p>
-    COMPUTER: <p id="cs"> 0 </p>
-</div>
-
-
-
 <script>
     function computerPlay(){
     let computerSelection = Math.floor(Math.random() * Math.floor(3)); {
         if (computerSelection === 0) {
-        return ('rock');
+        return ('rock')
     } if (computerSelection === 1) {
-        return ('scissors');
+        return ('scissors') 
     } if (computerSelection === 2) {
-        return ('paper');
+        return ('paper')
     }
     }
-    } 
+    }
+    
+    
+    function game(n){
+        computerScore = 0
+        playerScore = 0
+        round = 1;
+        while (round < 6){
+        let computerSelection = computerPlay();
+        let playerSelection = prompt('Round '+ round + ':' + ' Rock, paper or scissors?', '').toLowerCase();
+        console.log(playRound(playerSelection, computerPlay())); 
+        round++;
+        }
 
-    var playerScore = 0;
-    var computerScore = 0;
+            if (round > 5) {
+            alert('Game over! Computer score: ' + computerScore + ' Player score: ' + playerScore)
+        }
+        }
+    
+        game(5)
+
+
 
     function playRound(playerSelection, computerSelection){
-     
+    
+      
     if (playerSelection === computerSelection){
         console.log('You both picked the same. It is a tie!')
     } 
@@ -77,26 +75,12 @@
     else if (playerSelection == 'scissors' && computerSelection == 'rock'){
         computerScore++
         console.log('Rock beats scissors, you lose!' )
-    }
     
-    // updates player score in html
-    document.getElementById("ps").innerHTML = playerScore;
-    document.getElementById("cs").innerHTML = computerScore;
-
-    if (playerScore === 5 || computerScore === 5){
-        alert("Game over! Do you want to play again?");
-        location.reload();
     }
-    
+    else 
+        console.log('That is not a valid option')
 }
 
- // Picks up the input from the buttons
-    const buttons = document.querySelectorAll("button")
-
-    buttons.forEach(function(button) {
-       button.addEventListener('click', (e) => playRound(button.id, computerPlay()));
-       var playerSelection = button.id
-   });
     
 
        

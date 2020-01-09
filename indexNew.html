@@ -84,7 +84,8 @@
     document.getElementById("cs").innerHTML = computerScore;
 
     if (playerScore === 5 || computerScore === 5){
-        console.log("Game over!")
+        alert("Game over! Do you want to play again?");
+        location.reload();
     }
     
 }
